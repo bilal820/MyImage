@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MyImage.Models.Order>
+
+@{
+    ViewData["Title"] = "OrderList";
+}
+
+<h1>OrderList</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.user)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SizeDetail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.picture)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.user.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SizeDetail.Size_Discription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.picture)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Order_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Order_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Order_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

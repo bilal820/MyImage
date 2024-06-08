@@ -1,0 +1,100 @@
+﻿@{
+    Layout = "_webLayout";
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add to Cart Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .card {
+            margin-bottom: 20px;
+        }
+
+            .card img {
+                height: 150px;
+                object-fit: cover;
+            }
+
+        .cart-item-details {
+            padding: 15px;
+        }
+
+        .cart-summary {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+            .cart-summary h3 {
+                margin-bottom: 20px;
+            }
+
+            .cart-summary .total {
+                font-size: 1.5em;
+                font-weight: bold;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h2 class="mb-4">Cart</h2>
+        <div class="row">
+            <!-- Cart Items -->
+            <div class="col-lg-8">
+                <asp:Repeater ID="CartRepeater" runat="server">
+                    <ItemTemplate>
+                        <div class="card">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img src='<%# Eval("ProductImage") %>' class="card-img" alt="Product Image">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body cart-item-details">
+                                        <h5 class="card-title">Size Name:</h5>
+                                        <p class="card-text">Quantity:</p>
+                                        <p class="card-text">Price:</p>
+                                        <asp:Button ID="RemoveButton" runat="server" Text="Remove" CommandArgument='<%# Eval("ProductId") %>' OnClick="RemoveButton_Click" CssClass="btn btn-danger btn-sm" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+            <!-- Cart Summary -->
+            <div class="col-lg-4">
+                <div class="cart-summary">
+                    <h3>Summary</h3>
+                    <p class="d-flex justify-content-between">
+                        <span>Subtotal</span>
+                        <span id="subtotal">$0.00</span>
+                    </p>
+
+                    <hr>
+                    <p class="d-flex justify-content-between total">
+                        <span>Total</span>
+                        <span id="total">$0.00</span>
+                    </p>
+                    <button class="btn btn-primary btn-block">Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

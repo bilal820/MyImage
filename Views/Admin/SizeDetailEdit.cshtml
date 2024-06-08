@@ -1,0 +1,53 @@
+﻿@model MyImage.Models.SizeDetail
+
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "SizeDetailEdit";
+}
+
+<h1>Edit</h1>
+
+<h4>SizeDetail</h4>
+<hr />
+<div class="col-sm-12 col-md-6 col-xl-4">
+    <div class="h-100 bg-secondary rounded p-4">
+        <form asp-action="SizeDetailEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Size_id" />
+            <div class="form-group">
+                <label asp-for="Size_Name" class="control-label"></label>
+                <input asp-for="Size_Name" class="form-control bg-dark border-0">
+                <span asp-validation-for="Size_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Size_Discription" class="control-label"></label>
+                <input asp-for="Size_Discription" class="form-control bg-dark border-0" />
+                <span asp-validation-for="Size_Discription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Size_inches" class="control-label"></label>
+                <input asp-for="Size_inches" class="form-control bg-dark border-0" />
+                <span asp-validation-for="Size_inches" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Size_Price" class="control-label"></label>
+                <input asp-for="Size_Price" class="form-control bg-dark border-0" />
+                <span asp-validation-for="Size_Price" class="text-danger"></span>
+            </div>
+            </br>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="SizeDetailList">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

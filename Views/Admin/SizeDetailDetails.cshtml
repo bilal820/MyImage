@@ -1,0 +1,43 @@
+﻿@model MyImage.Models.SizeDetail
+
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "SizeDetailDetails";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>SizeDetail</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Size_Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Size_Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Size_Discription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Size_Discription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Size_inches)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Size_inches)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Size_Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Size_Price)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="SizeDetailEdit" asp-route-id="@Model?.Size_id">Edit</a> |
+    <a asp-action="SizeDetailList">Back to List</a>
+</div>
