@@ -39,7 +39,7 @@ namespace MyImage.Controllers
         }
 
         // GET: Admin/Details/5
-        public async Task<IActionResult> SizeDetaiDetails(int? id)
+        public async Task<IActionResult> SizeDetailDetails(int? id)
         {
             if (id == null || _context.SizeDetails == null)
             {
@@ -57,7 +57,7 @@ namespace MyImage.Controllers
         }
 
         // GET: Admin/Create
-        public IActionResult SizeDetaiCreate()
+        public IActionResult SizeDetailCreate()
         {
             return View();
         }
@@ -67,7 +67,7 @@ namespace MyImage.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SizeDetaiCreate([Bind("Size_id,Size_Name,Size_Discription,Size_inches,Size_Price")] SizeDetail sizeDetail)
+        public async Task<IActionResult> SizeDetailCreate([Bind("Size_id,Size_Name,Size_Discription,Size_inches,Size_Price")] SizeDetail sizeDetail)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace MyImage.Controllers
         }
 
         // GET: Admin/Edit/5
-        public async Task<IActionResult> SizeDetaiEdit(int? id)
+        public async Task<IActionResult> SizeDetailEdit(int? id)
         {
             if (id == null || _context.SizeDetails == null)
             {
@@ -130,7 +130,7 @@ namespace MyImage.Controllers
         }
 
         // GET: Admin/Delete/5
-        public async Task<IActionResult> SizeDetaiDelete(int? id)
+        public async Task<IActionResult> SizeDetailDelete(int? id)
         {
             if (id == null || _context.SizeDetails == null)
             {
@@ -150,7 +150,7 @@ namespace MyImage.Controllers
         // POST: Admin/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SizeDetaiDeleteConfirmed(int id)
+        public async Task<IActionResult> SizeDetailDeleteConfirmed(int id)
         {
             if (_context.SizeDetails == null)
             {
